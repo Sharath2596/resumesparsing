@@ -217,64 +217,7 @@ def extract_education():
     return education
 
 
-# this list was defined to handle values like windosw7/8/10
-# coz such values were not coming in ngrams only windows7 was getting extracted
-skills_db_complete = [
-    'version 8.48','people tools 8.57', 'peoplesoft hrms', 'weblogic10.3','oracle tuxedo 10.3','portal 9.0',
-    'oracle weblogic 10.3','windows server 2012','oracle 12cr1','version 8.48','peopletools8.54','tuxedo 10.3',
-    'web logic 10.3','oracle enterprise linux 5.4', 'oracle 10gr2','version 8.48', 'ms-sql server 2008r2','windows 2007', 
-    'weblogic8.1','tuxedo 10.3.6','tuxedo 8.1','people tools 8.57','peoplesoft applications 8.9','peopletools 8.55',
-    'people tools 8.56','redhat enterprise linux','windows server 2012 r2','web logic 8.1','peoplesoft financials v 8.9',
-    'pt8.54','windows 7','sql server 2016','sql server 2012', 'oracle 11g', 'sql server 2008','sql server 2014',
-    'windows 2008 server', 'windows7', 'windows xp','eib inbound','windows 8','etv','windows 2008', 'workday hcm'  
-]
-    
-#this will match the entire word as it is
-skills_db = [
-    'sdlc concepts','white box testing','sql skills','php','sql','java','full stack','c','c++','java','html','css','css3',
-    'xml','javascript','json','html5','responsive designs','bootstrap','reactjs','react.js','react js','react', 'json',
-    'j query','jquery','react','js','redux','mongo database','mongodb','node.js','mysql','aws','azure','ajax','typescript',
-    'angular 10','ms office','photoshop cs6','xhtml','dreamweaver cs6','responsive design','nest js','visual studio',
-    'netbeans','windows','android apps','unix','linux','es6','sass','hooks','shell scripting','weblogic', 'tuxedo',
-    'oracle','dba','peoplesoft applications','people tools', 'windows nt','peoplesoft hrms','fscm', 'crm', 'cs',
-    'hcm', 'bea tuxedo 8.1', 'bea weblogic 8.1', 'rhel as4', 'oel 5.5', 'oel 6', 'windows 2003/2008r2',
-    'peoplesoft hrms 9.0','peopletools 8.47,8.48, 8.50, 8.52','putty', 'sql', 'toad', 'beyond compare','oracle 10g/11g',
-    'capi','stat','autosys','fscm and 9.22 version','peoplesoft people tools','8.55.06','8.55.22', '8.57',
-    'odyssey dashboard', 'odyssey jira', 'service now', 'transporter','aws service tools', 'compute','storage',
-    'networks', 'databases', 'monitoring','identity access management', 'server r2', 'solaris server',
-    'linux red hat version', 'apache tomcat 7.0.39 and 7.0.52', 'reporting and ps tools', 'application designer',
-    'data mover', 'delphix virtual database', 'configuration manager', 'change assistant', 'sqr', 'n-vision',
-    'control-m scheduler', 'hp ppm', 'sql developer','centrify putty','configuration manager', 'ps query', 
-    'xml publisher','pum images', 'oracle 11g', 'oracle 12','change assistant', 'integration broker',
-    'application designer', 'configuration manager','peoplesoft update manager', 'pum', 'ses', 'data mover','hp-ux 11.31',
-    'changeassistant', 'integrationbroker', 'applicationdesigner','configuration manager', 'peoplesoft update manager',
-    'Red hat Enterprise Linux','app package', 'application engine', 'people code', 'sqr', 'bip', 'ps query',
-    'peoplesoft application designer','oracle 11g','peoplesoft- erp', 'ps security', 'application package', 
-    'process scheduler', 'workflow notification', 'file layout', 'data mover', 'xml publisher',
-    'integration broker', 'component interface', 'web services', 'workflow notifications', 'awe', 'peoplecode',
-    'fscm and hcm applications','sql server','db2','peoplesoft security','oracle sql developer',
-    'java full stack development', 'ariba', 'power bi','t-sql','sql server reporting tools',
-    'sql server integration services', 'sas', 'r', 'python','t-sql', 'aws rds', 'mariadb', 'sql server management studio',
-    'razorsql', 'heidisql', 'rstudio', 'tableau', 'excel', 'sybase ase 15.7 server','ms-sql','oracle','devops',
-    'pl/sql-oracle', 'pentaho data integration', 'linux','centos','ubuntu','vmware workstation',
-    'putty','db solo','dell sonic global vpn client','spoon','winscp', 'pig','hive','sqoop','hbase','impla','scala',
-    'core java','html','css','bootstrap','c-language', 'ssis','sql server analysis services', 
-    'sql server reporting services', 'report builder','crm','ssms','ms visual studio 2013', 'ms office suite',
-    'numpy','pandas','matplotlib','teradata', 'aws redshift','sql server management studio','ms sql server',
-    'microsoft business intelligence tools','workday hcm', 'core connectors picof',
-    'document transformation and workday studio', 'eib', 'workday web services', 'workday security','xml', 'sql', 
-    'basic shell scripting', 'informatica 9 &10', 'talend', 'putty', 'appworx', 'maestro', 'winscp', 
-    'reporting and integrations', 'xslt', 'mvel web services soap & rest', 'workday studio','core hr', 'benefits',
-    'compensation', 'time tracking', 'absence management', 'studio', 'calculated fields', 'change deduction', 
-    'reportwriting', 'integration', 'sup orgs', 'business object', 'workday', 'peoplesoft','workday advanced report writer', 'picof', 'workday web services','x-path','eib inbound',
-    'soap', 'xsd', 'report writer', 'eib and workday studio', 'core connector', 'document transformation',
-    'crystal reports11', 'xmlp', 'dt and studio', 'report writing', 'integrations','time tracking', 'absence management',
-    'document transformer', 'birt& business objects','core hcm', 'workday reports','business processes', 'notifications',
-    'alerts', 'security', 'integrations-eib', 'reports', 'calculated fields', 'business process', 'dt','basic studio',
-    'birt', 'payroll','talent','recruiting','calc fields','ccw', 'ccb','wd-soap','wd-rest','staffing','domain security',
-    'workday hcm and integrations', 'zenefits','workday report writer', 'oxygen', 'eclipse','lms','payment connectors', 
-    'mvel web services soap & rest','app engine', 'ci.xml'        
-]
+
     
 def extract_skills(input_text):
     stop_words  = set(nltk.corpus.stopwords.words('english'))
