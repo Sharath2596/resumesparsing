@@ -4,3 +4,4 @@ Recruiters use resume parsers in order to streamline the resume and applicant sc
 
 # Demo Video
 https://drive.google.com/file/d/1CqjtNQ_QGkWkyp8gH7YkzACatOaW_kL9/view?usp=sharing
+https://static.wixstatic.com/media/9730db_f37abc3d506a4d3bb0a549943941c3dd~mv2.jpg
